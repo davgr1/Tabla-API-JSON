@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AmorAzul System</title>
+
+    <!--hoja de estilo pico con css-->
     <link
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
 >
+<!--hoja de estilo propia-->
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -45,6 +48,23 @@
             </table>
         </div>
     </main>
+
+    <!--popup para agregar registros-->
+    <!--permite abrir un popup-->
+    <dialog id="mdagregar" >
+        <article>
+            <header>
+                <a href="#" class="close" id="btnCerrarModal"></a>
+                <h3>Agregar Integrantes</h3>
+            </header>
+            <form id="frmagregar">
+                <input type="text" id="txtNombre" placeholder="Nombre" required>
+                <input type="text" id="txtApellido" placeholder="Apellido" required>
+                <input type="email" id="txtEmail" placeholder="Correo Electronico" required> 
+                <button type="submit" class="contrast">Guardar Registro</button>
+            </form>
+        </article>
+    </dialog>
 
     <button class="add-button" id="btnagregar" title="Agregar Integrantes" >
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-plus-icon lucide-user-plus"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></svg>

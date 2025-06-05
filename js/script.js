@@ -45,3 +45,52 @@ ObtenerRegistros();
 const modal = document.getElementById("mdagregar"); //cuadro de dialogo
 const btnAgregar = document.getElementById("btnagregar"); //boton para agregar
 const btnCerrar = document.getElementById("btnCerrarModal"); //boton cerrar
+
+btnAgregar.addEventListener("click", ()=>{
+    modal.showModal(); //abre cuando a btnagregar se hace clic
+});
+
+btnCerrar.addEventListener("click", ()=>{
+    modal.close(); //cerrar el modal
+}); 
+
+//agregar un nuevo integrande desde el formulario
+
+document.getElementById("frmagregar").addEventListener("submit", async e =>{
+    e.preventDefault(); //evita que los daytos se envien  por defecto
+
+    //capturar los valores del formulario
+    const nombre = document.getElementById("txtNombre").value.trim();
+    const apellido = document.getElementById("txtApellido").value.trim();
+    const correo = document.getElementById("txtEmail").value.trim();
+
+    //validacion basica
+    if(!nombre || !apellido ||!correo){
+        alert("complete todos los campos");
+        return; ///evita que el codigo se siga ejecutando 
+    }
+
+    //llamar a la API y mandar datos
+    const respuesta = await fetch(API_URL, {
+        method: "POST",
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({nombre,apellido,correo})
+    });
+
+    if(respuesta.ok){
+        //mensaje de confirmacion
+        alert("El registro fue agregado correctamente");
+
+        //limpiar el formulario
+        document.getElementById("frmagregar").reset();
+
+        //cerrar el ,odal (dialog)
+        modal.close();
+
+        //recargar la tabla
+        ObtenerRegistros();
+    }
+    else{
+        alert("Error castratofico sistema muerto");
+    }
+});

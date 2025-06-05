@@ -8,6 +8,7 @@
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
 >
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header class="container">
@@ -19,30 +20,36 @@
             <ul>
                 <li><a href="#">Integrantes</a></li>
                 <li><a href="#">Tareas</a></li>
-                <li><a href="#">Mi Perfil</a></li>
                 <li><a href="#" role="button">Cerrar Sesion</a></li>
             </ul>
         </nav>
     </header>
     <main class="container">
         <h2>Integrantes del Equipo</h2>
-
-        <table id="tabla" class="overflow_auto striped" >
-            <thead>
-                <tr> <!--"tr" de table Row - Fila-->
-                    <th>Id</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Correo Electronico</th>
-                    <th>Acciones</th><!--botones de eliminar y editar-->
-                </tr>
-            </thead>
-
-            <tbody>
-                <!--aqui van los registros que viene del JSON-->
-            </tbody>
-        </table>
+        
+        <div class="tabla-scroll">
+            <table id="tabla" class="overflow_auto striped" >
+                <thead>
+                    <tr> <!--"tr" de table Row - Fila-->
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Correo Electronico</th>
+                        <th>Acciones</th><!--botones de eliminar y editar-->
+                    </tr>
+                </thead>
+    
+                <tbody>
+                    <!--aqui van los registros que viene del JSON-->
+                </tbody>
+            </table>
+        </div>
     </main>
+
+    <button class="add-button" id="btnagregar" title="Agregar Integrantes" >
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-plus-icon lucide-user-plus"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></svg>
+
+    </button>
     <!--Enlace al archivo javascript-->
     <script src="js/script.js"></script>
 </body>

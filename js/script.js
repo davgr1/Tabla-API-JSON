@@ -31,7 +31,7 @@ function MostrarRegistros(datos){
                 <td>${persona.correo}</td>
                 <td>
                     <button>Editar</button>
-                    <button>Eliminar</button>
+                    <button onclick="Eliminarpersona(${persona.id})">Eliminar</button>
                 </td>
             </tr>
        `;
@@ -94,3 +94,18 @@ document.getElementById("frmagregar").addEventListener("submit", async e =>{
         alert("Error castratofico sistema muerto");
     }
 });
+
+//funcion para borrar registro
+async function Eliminarpersona(id){
+    const confirmacion = confirm("Estas seguro ");
+
+    //validamos si el usuario elijio aceptar
+    if(confirmacion){
+        await fetch(`${API_URL}/${id}`, {
+            method: "DELETE"        
+        }); //llamar al endpoint
+
+        //recargarla tabla para actualizar la vista
+        ObtenerRegistros(); 
+    }
+}
